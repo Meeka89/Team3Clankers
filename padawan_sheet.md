@@ -18,27 +18,26 @@ fine.
 
 ## 1. Name
 
-**TODO** — the default is **Idrim Sool** (a gender-neutral, melodic name);
-change it freely.
+Bacdem Voss
 
 > Your padawan's name will appear in your team's assignment write-ups all
 > semester. Pick one you'll still like in November.
 
 ## 2. Species
 
-**TODO** — choose one from the curated list below.
+Zabrak
 
 ## 3. Saber color
 
-**TODO** — blue, green, or yellow.
+Blue
 
-**Why this role:** TODO — one sentence on which role you've chosen.
+**Why this role:** We are strong fighters and communicators. We want to be on the front lines and be the first to hear everything that comes up during the war.
 
 ## 4. Master's lesson
 
 **TODO** — one sentence completing the prompt:
 
-> *"What my master taught me that I remember most…"*
+> *"What my master taught me that I remember most is that seagulls will poke your knees."*
 
 Keep it short. It will be a callback hook later in the season.
 
