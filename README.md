@@ -1,8 +1,23 @@
+<<<<<<< HEAD
+# TODO: Your Team Name
+=======
 # Team3Clankers
+>>>>>>> bc0354948fb62476e4727d4c43eec67157833a4f
 
 > COMP 3200 — Deep Learning · Fall 2026 · Harding University · Dr. Joe Faith
 > *The Cybernetic Heresy*
 
+<<<<<<< HEAD
+> **Read this first — then delete this block.**
+> This README ships deliberately unfinished. Filling it in *is* Assignment 1,
+> Part A: **four of the twenty Week 1 points live on this page** — two for the
+> team name, members and communication channel, two for roles plus a rotation
+> plan. Replace every **TODO** below, delete this blockquote, and open a PR.
+> Once the repo is standing you can drop the numbered setup steps too — but keep
+> the deadline table under them, because it's the only copy in the repo.
+> Everything else on the page is here to stay.
+=======
+>>>>>>> bc0354948fb62476e4727d4c43eec67157833a4f
 
 ---
 
@@ -70,7 +85,12 @@ your own work.
 
 ---
 
+<<<<<<< HEAD
+**TODO:** one or two sentences on who your team is. A team name that means
+something to you beats a clever one that doesn't.
+=======
 Deep learning students working together to build, test, and document our neural networks from the ground up. We. Are. **Clankers.**
+>>>>>>> bc0354948fb62476e4727d4c43eec67157833a4f
 
 ---
 
@@ -81,6 +101,17 @@ other's PRs, so use the real GitHub handle, not a nickname.
 
 | Name | GitHub handle | Role |
 |---|---|---|
+<<<<<<< HEAD
+| TODO | @todo | TODO |
+| TODO | @todo | TODO |
+| TODO | @todo | TODO |
+| TODO | @todo | TODO |
+| TODO | @todo | TODO |
+
+**Communication channel:** TODO — where does this team actually talk? (Discord,
+GroupMe, Slack, a text thread — I don't care which, I care that there is one
+and that everyone is in it.)
+=======
 | Micah Kelley | @Meeka89 | Repo Lead |
 | Carter Owens | @carterbrun-lgtm | Standup Lead |
 | Benjamin Nance | @bnance7ry | Integration Tester |
@@ -88,6 +119,7 @@ other's PRs, so use the real GitHub handle, not a nickname.
 | Dominik Huff | @dhuff1 | Documentation Lead |
 
 **Communication channel:** SMS message group
+>>>>>>> bc0354948fb62476e4727d4c43eec67157833a4f
 
 ---
 
@@ -106,8 +138,17 @@ seats for that stretch. Descriptions are from the syllabus.
 
 ### Rotation plan
 
+<<<<<<< HEAD
+**TODO:** roles rotate every few weeks so everyone gets reps in every seat.
+Write down how yours will rotate — how often, and in what order. Two sentences
+is plenty.
+
+> Don't skip this one. The Week 1 rubric grades "roles assigned, documented in
+> README, and rotation plan noted," and the plan is the half people forget.
+=======
 We will rotate every 4 weeks starting with the first day of the semester. Everyone will have each role once.
 
+>>>>>>> bc0354948fb62476e4727d4c43eec67157833a4f
 
 ---
 
