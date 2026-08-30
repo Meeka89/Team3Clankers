@@ -49,7 +49,7 @@ for i in range(4):
     vect_np = np.array(vect)
     prediction_np = vect_np.dot(matrix_np.T) # We use .T because NumPy's .dot calculates  the weighted sum using the columns of the
                                              # weight matrix per input instead of the rows.
-                                             # .T flips the matrix along the diagonal axis so that way the 
+                                             # .T flips the matrix along the diagonal axis so that way each set of weights lines up with the correct input
 
     if i == 0:
         print("Input shape:", vect_np.shape) # the input shape is (3,) because each sensing has 3 features,
@@ -60,3 +60,7 @@ for i in range(4):
     print("Scratch:", pred_scratch)
     print("NumPy:", prediction_np)
     print("Match:", np.allclose(pred_scratch, prediction_np, atol=1e-9))
+
+
+    # 2nd sensing has no difference between scratch and NumPy
+    # 1st, 3rd, and 4th sensings do have small floating point decimals differences on some outputs
