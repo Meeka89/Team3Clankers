@@ -9,7 +9,7 @@ clean = [1, 1, 0, 1]
 weight = 0.5 # starting weight
 
 # calculate the error FIX prediction 
-def squared_error(predection, goal):
+def squared_error(prediction, goal):
     return (prediction - goal) ** 2
 
 
@@ -75,7 +75,10 @@ gradient_descent(balance[1], clean[1], weight, 10)
 #-----------------------------------------------------------------------------------
 # Does the same starting weight work well for all sensings?
 # 
-# A: idk
+# A: none of the four fully converge in 10 iterations. they are all still meaningfully
+#    off from their goal and the same starting weight doestn produce comparable results 
+#    across sesnings becasue my inputs have different magnitudes. IF you want a fairer comparison,
+#    youd either need more iterations or scale the learning rate per input so the effective step size is consistant
 #-----------------------------------------------------------------------------------
         
 
