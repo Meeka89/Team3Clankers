@@ -141,6 +141,7 @@ on Canvas. (Week 1 is the one exception — see the split deadline above.)
 | `transmissions/` | One introduction file per member (Week 1, Part B). |
 | `week1/` | One Foundations Reflection per member — `week1/yourname_reflection.md`, Assignment 2, 20 points, individual. Start from `week1/reflection_template.md`. |
 | `week2/` | Forward Propagation: Plain Python and NumPy implementations (`part1` through `part5`), assembled `forward_propagation.ipynb`, and `week2/README.md`. |
+| `week4/` | Multi-Input & Multi-Output Gradient Descent: Plain Python and NumPy implementations, weight freezing, unit tests (test_multi.py), and many_strikes.ipynb.
 | `data/` | Downloaded corpora. Git-ignored on purpose; see `DATASETS.md`. |
 
 **Setup.** Python 3 and Jupyter, then:

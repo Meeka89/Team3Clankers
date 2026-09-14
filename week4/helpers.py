@@ -19,3 +19,7 @@ def vect_mat_mul(vect, matrix):
         output.append(w_sum(vect, matrix[i]))
 
     return output
+
+def normalize(vals):
+    max_val = max(vals)
+    return [x / max_val for x in vals]
