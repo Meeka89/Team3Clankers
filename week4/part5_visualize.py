@@ -1,12 +1,12 @@
 #-----part5_visualize.py-----#
 #----------Andrew_Martin------------#
 
-import matplotlib
+import matplotlib  # type: ignore[reportMissingModuleSource]
 matplotlib.use("Agg")  # render to a file; no display needed
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt  # type: ignore[reportMissingModuleSource]
 
 from part1_multi_input import gradient_descent_multi
-from part4_freeze import gradient_descent_multi_frozen
+from part4_freeze import gradient_descent_frozen
 
 blade_angle, balance, breath = 8.5, 0.65, 1.2
 input_val = [blade_angle, balance, breath]
@@ -32,10 +32,10 @@ plt.close()  # start a clean figure for the next plot
 
 
 # --- Figure 2: frozen vs. unfrozen ---
-_, _, balance_frozen_hist = gradient_descent_multi_frozen(
+_, _, balance_frozen_hist = gradient_descent_frozen(
     list(input_val), list(start_weights), true, alpha, iterations, frozen=[0, 2]
 )
-_, _, breath_frozen_hist = gradient_descent_multi_frozen(
+_, _, breath_frozen_hist = gradient_descent_frozen(
     list(input_val), list(start_weights), true, alpha, iterations, frozen=[0, 1]
 )
 
