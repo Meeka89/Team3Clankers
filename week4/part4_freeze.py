@@ -55,3 +55,41 @@ if __name__ == "__main__":
                 f"Weights = {[round(w, 4) for w in w_hist[it]]}"
             )
         print(f"Final Weights: {[round(w, 4) for w in final_w]}\n")
+
+"""
+COMMENT BLOCK: PART 4 - FREEZING ANALYSIS
+
+1. Identification of Compensating Weights & Absorbing Slack:
+   - Baseline (frozen=[]): All three weights update concurrently based on their input 
+     magnitudes.
+   - Configuration 1 (frozen=[0, 2]): The 'balance' weight (index 1) does ALL the correcting. 
+     Because blade_angle and breath are locked and silent, the balance weight is forced 
+     to absorb all the residual error ("slack") to drive the prediction toward 1.0.
+   - Configuration 2 (frozen=[0, 1]): The 'breath' weight (index 2) does ALL the correcting 
+     for the same reason.
+
+2. Mathematical Explanation of Learning-Rate Tolerance:
+   Each iteration multiplies the prediction miss (delta) by the factor (1 - alpha * S), 
+   where S = sum(input[i]^2) evaluated ONLY over active (unfrozen) inputs.
+
+   - Baseline (All free, alpha = 0.01):
+     S = 8.5^2 + 0.65^2 + 1.2^2 = 72.25 + 0.4225 + 1.44 = 74.1125
+     Scaling factor = 1 - (0.01 * 74.1125) = 1 - 0.741125 = 0.258875
+     (The miss shrinks stably by ~74% per step).
+     *Note: If alpha=0.3 were used here, 1 - (0.3 * 74.1125) = -21.23, causing extreme 
+     divergence and flipping signs.*
+
+   - Balance Only Free (frozen=[0, 2], alpha = 0.3):
+     S = 0.65^2 = 0.4225
+     Scaling factor = 1 - (0.3 * 0.4225) = 1 - 0.12675 = 0.87325
+     (The miss shrinks stably by ~12.7% per step).
+
+   - Breath Only Free (frozen=[0, 1], alpha = 0.3):
+     S = 1.2^2 = 1.44
+     Scaling factor = 1 - (0.3 * 1.44) = 1 - 0.432 = 0.568
+     (The miss shrinks stably by ~43.2% per step).
+
+   Conclusion: Freezing index 0 removes the massive blade_angle input (8.5) from S, 
+   dropping S from 74.1125 to <= 1.44. Because the stability limit requires |1 - alpha * S| < 1, 
+   removing the large input allows us to safely scale alpha up by 30x without overshooting or exploding.
+"""
