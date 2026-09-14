@@ -71,40 +71,40 @@ for it in range(iterations):
 
 
 
-"""
-Comment Section
+    """
+    Comment Section
 
 
-a) Raw inputs at alpha = 0.1 diverge; scaled inputs at the same alpha do not. Explain it in
-terms of weight_delta = delta * input.
+    a) Raw inputs at alpha = 0.1 diverge; scaled inputs at the same alpha do not. Explain it in
+    terms of weight_delta = delta * input.
 
 
-The size of the weight update is scaled by the input because weight delta is alpha * delta * input.
-THis means that for the raw input with the large input and a larger input cause it to overshoot its
-prediction and it will continue overshooting, causing divergence. As for scaled data data, the same alpha
-gives a controlled step because every input value is less than, causing it to not diverge.
+    The size of the weight update is scaled by the input because weight delta is alpha * delta * input.
+    THis means that for the raw input with the large input and a larger input cause it to overshoot its
+    prediction and it will continue overshooting, causing divergence. As for scaled data data, the same alpha
+    gives a controlled step because every input value is less than, causing it to not diverge.
 
 
-(b) Your error after scaling is larger than the raw alpha = 0.01 run at every iteration, not just
-the first. Why is that not a regression? What are you actually comparing when you say one
-run is better than the other?
+    (b) Your error after scaling is larger than the raw alpha = 0.01 run at every iteration, not just
+    the first. Why is that not a regression? What are you actually comparing when you say one
+    run is better than the other?
 
 
-The runs are not necessarily the same. The raw run looks better because it happened to be a good fit for that
-scale, while the scaled run's alpha is a generic value that is not tuned. If the numbers were to change on the
-raw run, it is highly likely that it would not do well. Compared to the scaled run, you could change the alpha
-and it would do better because the input stays in the small range.
+    The runs are not necessarily the same. The raw run looks better because it happened to be a good fit for that
+    scale, while the scaled run's alpha is a generic value that is not tuned. If the numbers were to change on the
+    raw run, it is highly likely that it would not do well. Compared to the scaled run, you could change the alpha
+    and it would do better because the input stays in the small range.
 
 
-(c) Week 2 also gave you min-max. Applied to blade_angle, what does it make sensing 0's first
-entry? What then happens to that weight, and which later part of this assignment does that
-resemble?
+    (c) Week 2 also gave you min-max. Applied to blade_angle, what does it make sensing 0's first
+    entry? What then happens to that weight, and which later part of this assignment does that
+    resemble?
 
 
-Sensing 0's first entry would be 0. So then when it tries to udpate the weight, it simply doesn't and
-does not move. This resembles dead neurons or freezing weights.
+    Sensing 0's first entry would be 0. So then when it tries to udpate the weight, it simply doesn't and
+    does not move. This resembles dead neurons or freezing weights.
 
 
-"""
+    """
 
 
