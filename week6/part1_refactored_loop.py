@@ -97,6 +97,27 @@ if __name__ == "__main__":
     print("weights_1_2.round(2):\n", weights_1_2.round(2))
 
 
+# helper func for tests - Micah
+def one_step_with_shapes(layer_0, target, weights_0_1, weights_1_2):
+    layer_1 = relu(layer_0 @ weights_0_1)
+    layer_2 = layer_1 @ weights_1_2
+
+    layer_2_delta = layer_2 - target
+    layer_1_delta = (
+        layer_2_delta @ weights_1_2.T
+    ) * relu2deriv(layer_1)
+
+    return {
+        "layer_0": layer_0.shape,
+        "layer_1": layer_1.shape,
+        "layer_2": layer_2.shape,
+        "layer_1_delta": layer_1_delta.shape,
+        "layer_2_delta": layer_2_delta.shape,
+        "weights_0_1": weights_0_1.shape,
+        "weights_1_2": weights_1_2.shape,
+    }
+
+
 
 ## RESULTS! ##
 #-------------------
