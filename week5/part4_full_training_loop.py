@@ -2,9 +2,6 @@
 #----------Andrew_Martin--------------#
 
 
-
-
-
 import numpy as np
 from part2_forward_hidden import relu
 from part3_one_backprop_step import relu2deriv, one_step
@@ -128,7 +125,7 @@ if __name__ == "__main__":
         row = " | ".join(f"{results[(hs, s)]:.6f}" for s in seeds)
         print(f"{hs:>11} | {row}")
 
-     # hidden_size | seed=1     | seed=2     | seed=3
+    # hidden_size | seed=1     | seed=2     | seed=3
     #           1 | 2.000000   | 2.000095   | 2.000004
     #           2 | 2.000000   | 2.000000   | 0.066403
     #           4 | 0.000015   | 1.000000   | 1.000000
