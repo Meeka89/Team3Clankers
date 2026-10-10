@@ -1,5 +1,5 @@
-#-----part2_early_stopping.py-----#
-
+#------part2_early_stopping.py--------#
+#----------Andrew_Martin--------------#
 import copy
 import numpy as np
 from data import load_mnist, one_hot
