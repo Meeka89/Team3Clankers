@@ -1,35 +1,5 @@
 """ 
-The centerpiece. Add dropout and watch the gap narrow.
-1. Start from Part 1 and keep hidden_size = 40 and 350 iterations, so dropout is the only
-change between the two runs. Write train_dropout(X_train, Y_train, X_val, Y_val,
-iterations=350, dropout=True); with dropout=False it must reproduce your Part 1 run
-exactly.
-
-2. On every training step (every image), after computing layer_1, build a fresh dropout mask and
-apply it:
-mask = np.random.randint(2, size=layer_1.shape) # ~50% ones
-layer_1 *= mask * 2 # zero half, double the rest
-Doubling divides the survivors by the keep probability (1/0.5 = 2), so the next layer sees the
-same expected signal in training as at evaluation; this is called inverted dropout.
-
-3. On the backward pass, apply the same mask to delta_1 (delta_1 *= mask). Explain in a
-comment why a silenced neuron must receive no gradient. (This week the line changes no
-printed number — see Hints for why — but keep it.)
-
-4. Put one training step (forward, backward and weight update for one image) in its own function
-that takes the mask as an argument and updates the weights in place: dropout_step(layer_0,
-target, W_0_1, W_1_2, mask, alpha). train_dropout draws the mask and calls it; your
-Part 5 test 5 calls it with a mask it chose.
-
-5. At evaluation time, use no dropout — the whole network, no mask, no doubling. (Your
-evaluate from Part 1 already does this; do not change it.)
-
-6. Record training accuracy (the running count, so mask on) and validation accuracy each iteration;
-plot both to curves_part3.png.
-
-7. In a printed summary, with and without dropout (run both, same seed), report: the final training
-accuracy (running count), the training accuracy from evaluate() on the finished weights (mask
-off), the best validation accuracy and its pass, and the final validation accuracy.
+By Carter Owens
 """
 
 import numpy as np
