@@ -1,0 +1,20 @@
+Weight sharing radically transforms the network's first layer by constraining all
+26 \times 26 = 676 spatial patches to process features using the exact same set of 16
+3 \times 3 filters. Instead of learning 784 \times 100 = 78,400 independent pixel weights 
+as a dense layer does, the convolutional layer uses only 3 \times 3 \times 16 = 144 weights. 
+This builds in translation equivariance—the fundamental assumption that local visual patterns 
+like edges, curves, and corners maintain the exact same meaning regardless of where they appear 
+in an image. Despite reducing the first-layer parameters by 99.8%, the overall network parameter 
+count increases: the dense classifier connecting the 10,816 hidden outputs 
+(26 \times 26 \times 16) to 10 classes requires 10,816 \times 10 = 108,160 weights, 
+compared to Week 9's 100 \times 10 = 1,000 classifier weights. As a result, the convolutional 
+network does not significantly outperform the dense model in raw test accuracy 
+(~86% vs. ~87%). However, the inductive bias embedded in the first layer forces 
+the network to learn reusable visual features rather than memorizing spatial positions. 
+Engaging Korrith's warning, convolutional recognition extracts abstract features—such as facial
+features or body outlines—that apply indiscriminately, enabling both helpful digit classification 
+and automated target surveillance. In modern engineering, "look only for what you would be 
+willing to be seen looking for" is the principle of targeted feature minimization and ethical 
+compliance. Systems should collect and process only the minimal, domain-specific visual features 
+required for their task, enforcing strict privacy guardrails to prevent passive, broad-spectrum 
+surveillance. 
