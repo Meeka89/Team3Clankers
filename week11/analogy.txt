@@ -1,0 +1,12 @@
+The fill-in-the-blank map (Part 4) produced a significantly sharper and semantic-driven 
+geometry than the sentiment map (Part 2). The sentiment classifier map collapsed words 
+onto a single dimensional axis of binary polarity (positive vs. negative). For instance, 
+under sentiment training, terrible yields words exclusively tied to negative sentiment reviews 
+such as annoying, lacks, and disappointment. In contrast, the fill-in-the-blank map learns 
+context window placement, clustering words by their functional and grammatical roles. Re-querying 
+terrible on the fill-in-the-blank embedding exposes an intensity axis rather than a strict 
+sentiment split, bringing descriptive intensity synonyms like horrible, lousy, and pathetic into 
+close proximity alongside high-intensity praise terms like brilliant, marvelous, and masterful. 
+This contextual mapping allows vector operations like terrible + good - bad to yield meaningful 
+relational outputs (horrible, lousy), whereas performing vector arithmetic on the sentiment 
+embedding collapses into arbitrary sentiment points.
