@@ -45,16 +45,17 @@ def predict(sent_indices, embed, recurrent, start, decoder):
         prev_hidden = layers[-1]['hidden']
         current_word_idx = sent_indices[idx]
         
-        # Recurrent hidden state update: prev_hidden @ recurrent + embed[current_word_idx]
-        hidden_state = prev_hidden.dot(recurrent) + embed[current_word_idx]
-        
-        # Decode to logits and compute softmax output probabilities
-        logits = hidden_state.dot(decoder)
+        # Guess the current word from the PREVIOUS hidden state, before the
+        # network has seen it (otherwise it predicts a word it already read)
+        logits = prev_hidden.dot(decoder)
         pred = softmax(logits)
-        
-        # target token for this layer prediction is the next token in sequence
+
+        # target token for this layer prediction is the current word
         # sent_indices represents the sliced sentence input (e.g. tokens[0][1:])
         target_idx = sent_indices[idx]
+
+        # Then take in the word: prev_hidden @ recurrent + embed[current_word_idx]
+        hidden_state = prev_hidden.dot(recurrent) + embed[current_word_idx]
         
         # Accumulate cross-entropy loss: -log(P(target))
         # Clip pred to avoid log(0) numerical instability
