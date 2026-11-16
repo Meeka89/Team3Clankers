@@ -1,0 +1,15 @@
+In our autograd framework, implementing a forward operation without its backward branch breaks 
+the chain rule at that exact node. If we deleted the mm (matrix multiplication) backward branch 
+in tensor.py, the forward pass would execute normally without raising any errors or warnings. The 
+network would still compute predictions and produce a loss value. However, during loss.backward(), 
+the gradient propagation would hit the mm node and silently stop. Because mm never calls 
+.backward() on its creators (input and self.weight), every upstream weight and bias parameter 
+feeding into that layer would keep grad = None. In our framework, optim.step() would immediately 
+crash with an AttributeError when trying to access p.grad.data; if guarded against None, those 
+weights would simply never update, leaving the model frozen and incapable of learning.   
+
+This is precisely the trap Vex fell into: keeping the forward "power" to generate outputs while 
+stripping away the backward "price" that allows errors to correct the system. To catch this defect 
+before shipping, we rely on numeric gradient checking (using central differences to verify that 
+analytic gradients match numerical perturbations) paired with mandatory PR reviews verifying that 
+every forward operation has a complete backward counterpart.
